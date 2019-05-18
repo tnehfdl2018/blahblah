@@ -24,7 +24,7 @@ public class TeamTest {
 	@Test
 	public void contextLoads() {
 		assertEquals(1, teamMapper.getTeams().size());
-		assertEquals(1, commentMapper.getComments(1).size());
+		assertEquals(2, commentMapper.getComments(1).size());
 	}
 
 }
