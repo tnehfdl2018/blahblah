@@ -1,0 +1,2 @@
+1. 부트 기동후 http://localhost:8080/h2 접속
+2. JDBC URL 을 변경 jdbc:h2:mem:testdb
