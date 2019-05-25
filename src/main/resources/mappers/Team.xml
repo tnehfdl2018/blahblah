@@ -4,6 +4,32 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="itc.hoseo.spring.blah.team.TeamMapper">
 	<select id="getTeams" resultType="Team">
-		select * from team
+		select * from teamtable
 	</select>
+	
+	<select id="findTeams" parameterType="Team" resultType="Team">
+		select * from teamtable
+		<where>
+		    <if test="teamNameKr != null">
+		         team_name_kr = #{teamNameKr}
+		    </if>
+		    <if test="teamYear != null">
+		        AND team_year = #{teamYear}
+		    </if>
+		    <if test="teamLastResult != null">
+		        AND team_last_result = #{teamLastResult}
+		    </if>
+		  </where>
+	</select>
+	
+	<update id="updateTeam"></update>
+	
+	<delete id="deleteTeam"></delete>
+	
+	<insert id="addTeam" parameterType="Team">
+		insert into teamtable(team_name_kr, team_name_en, team_year, team_win, team_last_result, team_loc) values 
+		(#{teamNameKr}, #{teamNameEn}, #{teamYear}, #{teamWin}, #{teamLastResult}, #{teamLoc})
+	</insert>
+	
+	
 </mapper>
