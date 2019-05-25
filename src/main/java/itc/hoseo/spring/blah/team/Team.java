@@ -17,3 +17,5 @@ public class Team {
 	private String teamLastResult;
 	private String teamLoc;
 }
+
+

@@ -39,11 +39,28 @@ public class TeamTest {
 				.teamNameKr("호서 아이티즈")
 				.teamNameEn("Hoseo")
 				.teamYear("2019")
-				.teamWin("1111")
+				.teamWin("111")
 				.teamLastResult("1111")
 				.teamLoc("서울 발산동").build());
 		
 		assertEquals(11,teamMapper.getTeams().size());
 	}
+	
+	@Test
+	public void testUpdateTeam() {
+		teamMapper.updateTeam(Team.builder()
+				.teamNameKr("호서 컴퓨터즈").build());
+	}
+	
+	@Test
+	public void testgetTeams() {
+		assertEquals(11,teamMapper.getTeams().size());
+	}
+	
+//	@Test
+//	public void deleteTeams() {
+//		teamMapper.deleteTeam(Team.builder()
+//				.teamNameKr("호서 컴퓨터즈").build());
+//	}
 
 }

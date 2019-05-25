@@ -1,4 +1,4 @@
-insert into teamtable(team_name_kr, team_name_en, team_year, team_win, team_last_result, team_loc) values 
+insert into teamtable values 
 ('기아 타이거즈', 'KIA Tigers', '1982년', '11회', '5위', '광주 광역시'),
 ('두산 베어스', 'Doosan Bears', '1982년', '5회', '2위', '서울 특별시'),
 ('SK 와이번스', 'SK Wyverns', '2000년', '4회', '1위', '인천 광역시'),
