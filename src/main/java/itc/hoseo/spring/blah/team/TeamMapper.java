@@ -13,5 +13,6 @@ public interface TeamMapper {
 	public int addTeam(Team t);
 
 	public int updateTeam(Team t);
+	
 	public int deleteTeam(Team t);
 }

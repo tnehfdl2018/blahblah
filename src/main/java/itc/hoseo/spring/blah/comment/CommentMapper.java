@@ -9,7 +9,13 @@ import itc.hoseo.spring.blah.comment.Comment.CommentBuilder;
 @Mapper
 public interface CommentMapper {
 	public List<Comment> getComments();
-	public List<Comment> findComments(Comment com);
+	public List<Comment> findComments(Comment c);
 	
-	public int addComment(CommentBuilder commentBuilder);
+	
+	
+	public int addComment(Comment c);
+	
+	public int updateComment(Comment c);
+	
+	public int deleteComment(Comment c);
 }

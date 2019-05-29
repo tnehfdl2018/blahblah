@@ -26,6 +26,7 @@
 		  </where>
 	</select>
 	
+	
 	<!-- insert part -->
 	
 	<insert id="addTeam" parameterType="Team">
@@ -40,19 +41,15 @@
 	<update id="updateTeam">
 		update teamtable
 		set team_name_kr = #{teamNameKr}
-		where team_name_kr = #{teamNameKr}
-	
+		where team_name_kr = #{teamNameKr}	
 	</update>
+	
 	
 	<!-- delete part -->
 	
 	<delete id="deleteTeam">
 		delete from teamtable
-		where team_name_kr = #{teamNameKr}
-		
+		where team_name_kr = #{teamNameKr}		
 	</delete>
-	
-	
-	
 	
 </mapper>

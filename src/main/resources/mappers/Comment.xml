@@ -2,37 +2,47 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="itc.hoseo.spring.blah.comment.Commgit aentMapper">
+<mapper namespace="itc.hoseo.spring.blah.comment.CommentMapper">
 
 	<!-- select part -->
-	<select id="getComments" parameterType="int" resultType="Team">
-		select * from comment where team_name_kr = #{teamNameKr}
+	
+	<select id="getComments" resultType="Comment">
+		select * from comment
 	</select>
 	
+	<select id="findComments" parameterType="Comment" resultType="Comment">
+		select * from comment		
+		<where>
+			 <if test="teamNameKr != null">
+				team_name_kr = #{teamNameKr}
+			</if>
+		</where>
+	</select>
+	
+	
 	<!-- insert part -->
-	<!--
-	<insert id="addTeam" parameterType="Team">
-		insert into teamtable(team_name_kr, team_name_en, team_year, team_win, team_last_result, team_loc) values 
-		(#{teamNameKr}, #{teamNameEn}, #{teamYear}, #{teamWin}, #{teamLastResult}, #{teamLoc})
-	</insert>-->
+	
+	<insert id="addcoment" parameterType="Comment">
+		insert into comment(team_name_kr, subject, writer, content, date) values 
+		(#{teamNameKr}, #{subject}, #{writer}, #{content}, #{wrtrDttm})
+	</insert>
 	
 	
 	
 	<!-- update part -->
-	<!-- 
-	<update id="updateTeam">
-		update teamtable
+	 
+	<update id="updateComment">
+		update comment
 		set team_name_kr = #{teamNameKr}
-		where team_name_kr = #{teamNameKr}
+		where team_name_kr = #{teamNameKr}	
+	</update>
 	
-	</update> -->
 	
 	<!-- delete part -->
-	<!-- 
-	<delete id="deleteTeam">
-		delete from teamtable
-		where team_name_kr = #{teamNameKr}
-		
-	</delete>-->
+
+	<delete id="deleteComment">
+		delete from comment
+		where team_name_kr = #{teamNameKr}		
+	</delete>
 	
 </mapper>

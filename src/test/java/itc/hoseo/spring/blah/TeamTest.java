@@ -23,6 +23,7 @@ public class TeamTest {
 	public void testFindTeams() {
 		Team t = new Team();
 		t.setTeamLastResult("1위");
+		System.out.println("잘되는중");
 		Team winTeam = teamMapper.findTeams(t).get(0);
 		
 		assertEquals("SK 와이번스", winTeam.getTeamNameKr());
@@ -54,13 +55,13 @@ public class TeamTest {
 	
 	@Test
 	public void testgetTeams() {
-		assertEquals(11,teamMapper.getTeams().size());
+		assertEquals(10,teamMapper.getTeams().size());
 	}
 	
-//	@Test
-//	public void deleteTeams() {
-//		teamMapper.deleteTeam(Team.builder()
-//				.teamNameKr("호서 컴퓨터즈").build());
-//	}
+	@Test
+	public void deleteTeams() {
+		teamMapper.deleteTeam(Team.builder()
+				.teamNameKr("호서 컴퓨터즈").build());
+	}
 
 }

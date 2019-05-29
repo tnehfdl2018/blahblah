@@ -1,5 +1,6 @@
 package itc.hoseo.spring.blah.comment;
 
+import java.security.Timestamp;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
@@ -13,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Comment {
 	private String teamNameKr;
-	private String Subject;
+	private String subject;
 	private String writer;
 	private String content;
 	private Date wrtrDttm;
