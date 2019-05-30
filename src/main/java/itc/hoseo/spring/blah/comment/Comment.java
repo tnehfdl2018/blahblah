@@ -1,6 +1,5 @@
 package itc.hoseo.spring.blah.comment;
 
-import java.security.Timestamp;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
