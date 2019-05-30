@@ -64,10 +64,7 @@ public class CommentTest {
 				.teamNameKr("두산 베어스").build());
 	}
 	
-	@Test
-	public void testgetComment() {
-		assertEquals(4,commentMapper.getComments().size());
-	}
+	
 	
 	@Test
 	public void deleteComment() {
