@@ -52,7 +52,7 @@ public class CommentTest {
 					  .subject("제목이랍니다.")
 					  .writer("이다일")
 					  .content("내용입니다.")
-					  .wrtrDttm().build());
+					  .build());
 		
 		
 		assertEquals(4, commentMapper.getComments().size());

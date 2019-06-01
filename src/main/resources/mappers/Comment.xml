@@ -22,7 +22,8 @@
 	
 	<!-- insert part -->
 	
-	<insert id="addcoment" parameterType="Comment">
+
+	<insert id="addComment" parameterType="Comment">
 		insert into comment(team_name_kr, subject, writer, content, date) values 
 		(#{teamNameKr}, #{subject}, #{writer}, #{content}, #{wrtrDttm})
 	</insert>
@@ -44,5 +45,4 @@
 		delete from comment
 		where team_name_kr = #{teamNameKr}		
 	</delete>
-	
 </mapper>
