@@ -52,8 +52,8 @@ public class CommentTest {
 					  .subject("제목이랍니다.")
 					  .writer("이다일")
 					  .content("내용입니다.")
+
 					  .build());
-		
 		
 		assertEquals(4, commentMapper.getComments().size());
 	}
@@ -64,10 +64,7 @@ public class CommentTest {
 				.teamNameKr("두산 베어스").build());
 	}
 	
-	@Test
-	public void testgetComment() {
-		assertEquals(4,commentMapper.getComments().size());
-	}
+	
 	
 	@Test
 	public void deleteComment() {

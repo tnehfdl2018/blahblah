@@ -18,10 +18,6 @@
 			</if>
 		</where>
 	</select>
-	
-	
-	<!-- insert part -->
-	
 
 	<insert id="addComment" parameterType="Comment">
 		insert into comment(team_name_kr, subject, writer, content, date) values 
