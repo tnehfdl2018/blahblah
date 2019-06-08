@@ -78,12 +78,12 @@
 			<li><a href="index.html">홈으로</a></li>
 			<li><a href="">구단소개</a>
 				<ul class="sub-menu teams">
-					<li th:each="t: ${teams}"><a href=""
+					<li th:each="t: ${pikachu}"><a href=""
 						th:href="@{/{tName}.html(tName=${t.teamNameEn})}"
 						th:text="${t.teamNameKr}"></a></li>
 
 				</ul></li>
-			<li><a href="index.html">게시판</a></li>
+			<li><a href="comment.html">게시판</a></li>
 
 
 
@@ -175,7 +175,7 @@
 					</ul>
 				</div>
 				<h2 class="entry-title">
-					<a href="single.html"> 게시판 </a>
+					<a href="about-3.html"> 게시판 </a>
 				</h2>
 				<a href="single.html">
 					<div class="read-more-holder">

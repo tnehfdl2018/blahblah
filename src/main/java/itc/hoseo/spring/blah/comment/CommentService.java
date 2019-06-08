@@ -1,12 +1,12 @@
-
 package itc.hoseo.spring.blah.comment;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Service;
 
-@Mapper
-public interface CommentMapper {
+@Service
+public interface CommentService {
+	
 	public List<Comment> getComments();
 
 	public List<Comment> findComments(Comment c);
@@ -16,4 +16,5 @@ public interface CommentMapper {
 	public int updateComment(Comment c);
 
 	public int deleteComment(Comment c);
+
 }
