@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.StringUtils;
 
 import itc.hoseo.spring.blah.comment.Comment;
 import itc.hoseo.spring.blah.comment.CommentMapper;
@@ -32,7 +33,6 @@ public class CommentTest {
 		c.setWriter("최수빈");
 		System.out.println("잘되는중");
 		Comment teamNameKr = commentMapper.findComments(c).get(0);
-		
 		
 		assertEquals("기아 타이거즈", teamNameKr.getTeamNameKr());
 	}

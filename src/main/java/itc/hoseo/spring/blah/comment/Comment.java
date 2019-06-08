@@ -2,6 +2,8 @@ package itc.hoseo.spring.blah.comment;
 
 import java.util.Date;
 
+import org.springframework.util.StringUtils;
+
 import itc.hoseo.spring.blah.comment.Comment.CommentBuilder;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,4 +20,5 @@ public class Comment {
 	private String writer;
 	private String content;
 	private Date wrtrDttm;
+	
 }

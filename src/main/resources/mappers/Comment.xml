@@ -13,8 +13,17 @@
 	<select id="findComments" parameterType="Comment" resultType="Comment">
 		select * from comment		
 		<where>
-			 <if test="teamNameKr != null">
-				team_name_kr = #{teamNameKr}
+			 <if test="@org.springframework.util.StringUtils@isEmpty(teamNameKr) == false">
+				team_name_kr like '%' || #{teamNameKr} || '%'
+			</if>
+			<if test="@org.springframework.util.StringUtils@isEmpty(subject) == false">
+				AND subject like '%' ||  #{subject}  || '%'
+			</if>
+			<if test="@org.springframework.util.StringUtils@isEmpty(writer) == false">
+				AND writer like '%' ||  #{writer}  || '%'
+			</if>
+			<if test="@org.springframework.util.StringUtils@isEmpty(content) == false">
+				AND content like '%' ||  #{content}  || '%'
 			</if>
 		</where>
 	</select>

@@ -1,27 +1,30 @@
 package itc.hoseo.spring.blah;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.common.collect.ImmutableList;
 
+import itc.hoseo.spring.blah.comment.Comment;
 import itc.hoseo.spring.blah.comment.CommentService;
 import itc.hoseo.spring.blah.team.Position;
 import itc.hoseo.spring.blah.team.Team;
-import itc.hoseo.spring.blah.team.TeamMapper;
 import itc.hoseo.spring.blah.team.TeamService;
 
 @Controller
 public class MainController {
 	@Autowired
 	private TeamService teamService;
-	@org.springframework.beans.factory.annotation.Autowired(required=true)
+	
+	@Autowired
 	private CommentService commentService;
 
 	@RequestMapping("/")
@@ -30,7 +33,7 @@ public class MainController {
 		return "index";
 	}
 
-	@RequestMapping("/team_about.html")
+	@RequestMapping("/team_about")
 	public String getTeamsAbout(ModelMap m) {
 
 		List<Team> teams = ImmutableList.of(Team.builder().teamNameEn("Kiaaaaaaaaaaaaa").teamNameKr("키아 주모").build(),
@@ -56,10 +59,24 @@ public class MainController {
 		return teamService.findNearTeams(pos);
 	}
 	
-	@RequestMapping("/about-3.html")
-	public String comment(ModelMap m) {
-		m.put("pairy", commentService.getComments());
-		return "about-3";
+	
+	
+	@PostMapping("/comment")
+	public String comment(Comment c) {
+		c.setWrtrDttm(new Date());
+		commentService.addComment(c);
+		return "redirect:comment";
+	}
+	
+	@RequestMapping("/comment")
+	public String comment(ModelMap m, Comment c) {
+		if(c != null) {
+			m.put("commentList", commentService.findComments(c));
+		}else {
+			m.put("commentList", commentService.getComments());
+		}
+		
+		return "pikapika";
 	}
 
 }
