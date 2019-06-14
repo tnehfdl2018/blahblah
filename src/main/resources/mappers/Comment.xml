@@ -13,8 +13,14 @@
 	<select id="findComments" parameterType="Comment" resultType="Comment">
 		select * from comment		
 		<where>
-			 <if test="teamNameKr != null">
-				team_name_kr = #{teamNameKr}
+			 <if test="@org.thymeleaf.util.StringUtils@isEmptyOrWhitespace(teamNameKr) == false">
+				and team_name_kr like '%' ||  #{teamNameKr} || '%'
+			</if>
+			 <if test="@org.thymeleaf.util.StringUtils@isEmptyOrWhitespace(subject) == false">
+				and subject like '%' ||  #{subject} || '%'
+			</if>
+			<if test="@org.thymeleaf.util.StringUtils@isEmptyOrWhitespace(content) == false">
+				and subject like '%' ||  #{content} || '%'
 			</if>
 		</where>
 	</select>
@@ -30,15 +36,21 @@
 	 
 	<update id="updateComment">
 		update comment
-		set team_name_kr = #{teamNameKr}
-		where team_name_kr = #{teamNameKr}	
+		<set>
+			team_name_kr = #{teamNameKr}
+		</set>
+		<where>
+			team_name_kr = #{teamNameKr}	
+		</where>
 	</update>
 	
 	
 	<!-- delete part -->
 
-	<delete id="deleteComment">
+	<delete id="deleteComment" parameterType="Comment">
 		delete from comment
-		where team_name_kr = #{teamNameKr}		
+		<where>
+			subject = #{subject}
+		</where>		
 	</delete>
 </mapper>

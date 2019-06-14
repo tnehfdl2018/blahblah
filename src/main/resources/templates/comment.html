@@ -1,18 +1,73 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
-
-<form action="">
-	<input type="text" name="subject">
-	<textarea rows="10" cols="10" name="content"/>
-	<button type="submit" id="insert">���</button>
-	<button type="submit" id="modify">����</button>
-	<button type="submit" id="delete">����</button>
-</form>
-
-</body>
+<!DOCTYPE HTML>
+<html lang="ko-KR">
+	<head>
+		<meta charset="utf-8">
+		<title>게시판</title>
+		
+		<style>
+		  table {
+		    width: 100%;
+		    border-top: 1px solid #444444;
+		    border-collapse: collapse;
+		  }
+		  th, td {
+		    border-bottom: 1px solid #444444;
+		    padding: 10px;
+		    text-align: center;
+		  }
+		</style>
+	</head>
+	<body>
+		<!-- GET 조회 -->
+		<form method="get" name="get" action="comment">
+			<h3>검색</h3>
+			팀 이름 : <input type="text" name="teamNameKr"><br>
+			작성자 : <input type="text" name="writer"><br>
+			작성 시간 : <input type="text" name="${cmt.wrtrDttm}"><br>
+			제목 : <input type="text" name="subject"><br>
+			내용 : <input type="text" name="content"><br>
+			<button type="submit" id="search">검색</button><br>
+		</form> <br>
+		<hr>
+		
+		<!-- POST 저장 -->
+		<form method="post" name="write">
+			<h3>저장</h3>
+			제목 : <input type="text" name="subject"><br>
+			팀 이름 : <input type="text" name="teamNameKr"><br>
+			작성자 : <input type="text" name="writer"><br>
+			내용 : <input type="text" name="content">
+			<button type="submit" id="insert">등록</button>
+		</form> <br>
+		<hr>
+		
+		<!-- 삭제 -->
+		<form name="delete" method="get" action="delete">
+			<h3>삭제</h3>
+			제목 : <input type="text" name="subject" id = "delete">
+			<button type="submit">삭제</button>
+		</form> <br>
+		<hr>
+			
+		<br><br><br>
+		<!-- 뿌려주기 -->
+		<div th:each="cmt : ${pairy}">
+			<table>
+				<tr>
+					<th>팀 이름</th>
+					<th>작성자</th>
+					<th>작성 날짜</th>
+					<th>제목</th>
+					<th>내용</th>
+				</tr>
+				<tr>
+					<td th:text = "${cmt.teamNameKr}"/>
+					<td th:text = "${cmt.writer}"/>
+					<td th:text = "${#temporals.formatISO(cmt.wrtrDttm)}"/>
+					<td th:text = "${cmt.subject}"/>
+					<td th:text = "${cmt.content}"/>
+				</tr>
+			</table>
+		</div>
+	</body>
 </html>
