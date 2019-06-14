@@ -26,7 +26,7 @@
 	</select>
 
 	<insert id="addComment" parameterType="Comment">
-		insert into comment(team_name_kr, subject, writer, content, date) values 
+		insert into comment(team_name_kr, subject, writer, content, date) values
 		(#{teamNameKr}, #{subject}, #{writer}, #{content}, #{wrtrDttm})
 	</insert>
 	
@@ -34,10 +34,12 @@
 	
 	<!-- update part -->
 	 
-	<update id="updateComment">
+	<update id="updateComment" parameterType="Comment">
 		update comment
 		<set>
-			team_name_kr = #{teamNameKr}
+			subject = #{subject},
+			writer = #{writer},
+	 		content = #{content},
 		</set>
 		<where>
 			team_name_kr = #{teamNameKr}	
