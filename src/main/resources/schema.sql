@@ -15,5 +15,5 @@ team_name_kr varchar(100) not null,
 subject varchar(200) not null,
 writer varchar(20) not null,
 content varchar(300),
-date DATE
+date timestamp default now()
 );

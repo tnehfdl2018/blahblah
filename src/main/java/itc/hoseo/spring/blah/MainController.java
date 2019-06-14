@@ -1,5 +1,6 @@
 package itc.hoseo.spring.blah;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -73,7 +74,8 @@ public class MainController {
 	
 	@RequestMapping(path = "comment", method = RequestMethod.POST, name = "write")
 	public String saveComment(Comment cmt ,ModelMap m) {
-		cmt.setWrtrDttm(new Date());
+		Timestamp ts = new Timestamp(System.currentTimeMillis());
+		cmt.setWrtrDttm(ts);
 		commentService.addComment(cmt);		
 		return "redirect:comment";
 	}

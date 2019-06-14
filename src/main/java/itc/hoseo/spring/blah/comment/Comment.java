@@ -1,5 +1,7 @@
 package itc.hoseo.spring.blah.comment;
 
+
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -15,5 +17,5 @@ public class Comment {
 	private String subject;
 	private String writer;
 	private String content;
-	private Date wrtrDttm;
+	private Timestamp wrtrDttm;
 }
