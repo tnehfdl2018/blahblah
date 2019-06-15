@@ -1,6 +1,7 @@
 package itc.hoseo.spring.blah.comment;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -16,5 +17,8 @@ public interface CommentService {
 	public int updateComment(Comment c);
 
 	public int deleteComment(Comment c);
+
+	public Object detailComment(int commentNum);
+
 
 }

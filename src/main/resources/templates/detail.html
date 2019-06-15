@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="ko-KR">
+<head>
+<meta charset="utf-8">
+<title>게시판</title>
+
+<style>
+table {
+	width: 100%;
+	border-top: 1px solid #444444;
+	border-collapse: collapse;
+}
+
+th, td {
+	border-bottom: 1px solid #444444;
+	padding: 10px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+		<table th:each="cmt : ${ditailView}">
+			<tr>
+				<th>글번호</th>
+				<th>팀 이름</th>	
+				<th>작성자</th>
+				<th>작성 날짜</th>
+				<th>제목</th>
+				<th>내용</th>
+			</tr>
+			<tr>
+				<td th:text="${cmt.commentNum}" />
+				<td th:text="${cmt.teamNameKr}" />
+				<td th:text="${cmt.writer}" />
+				<td th:text="${cmt.wrtrDttm}" />
+				<td th:text="${cmt.subject}" />
+				<td th:text="${cmt.content}" />
+			</tr>
+		</table>
+		</form>
+		<!-- POST 저장 -->
+		<form method="post" name="add" action="add">
+			<button type="submit">등록</button>
+		</form>
+
+		<!-- 수정 -->
+		<form method="get" name="reModify" action="reModify">
+			<button type="submit">수정</button>
+		</form>
+		<br>
+	</div>
+</body>
+</html>

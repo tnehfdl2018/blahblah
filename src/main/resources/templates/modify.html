@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="ko-KR">
+   <head>
+      <meta charset="utf-8">
+      <title>게시판</title>
+      
+      <style>
+        table {
+          width: 100%;
+          border-top: 1px solid #444444;
+          border-collapse: collapse;
+        }
+        th, td {
+          border-bottom: 1px solid #444444;
+          padding: 10px;
+          text-align: center;
+        }
+      </style>
+   </head>
+   <body>
+      <!-- 수정 -->
+      <form method="get" name="modify" action="modify">
+         <h3>수정</h3>
+         글번호 : <input type="text" name="commentNum" placeholder="글번호를 정확하게 기입해 주세요."><br>
+         팀 이름 : <input type="text" name="teamNameKr" placeholder="수정하고 싶은 내용"><br>
+         제목 : <input type="text" name="subject" placeholder="수정하고 싶은 내용"><br> 
+         작성자 : <input type="text" name="writer" placeholder="수정하고 싶은 내용"><br>
+         내용 : <br> <textarea rows="20" cols="50" name="content">수정하고 싶은 내용</textarea>
+         <button type="submit">수정</button>
+      </form> <br>
+      <hr>
+  
+     
+   </body>
+</html>
