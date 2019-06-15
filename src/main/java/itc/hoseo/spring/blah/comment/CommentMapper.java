@@ -16,4 +16,6 @@ public interface CommentMapper {
 	public int updateComment(Comment c);
 
 	public int deleteComment(Comment c);
+	
+	public List<Comment> detailComment(int commentNum);
 }

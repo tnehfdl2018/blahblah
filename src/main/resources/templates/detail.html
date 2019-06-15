@@ -19,15 +19,10 @@ th, td {
 </style>
 </head>
 <body>
-
-
-	<!-- 뿌려주기 -->
-
-	<div th:each="cmt : ${pairy}">
-		<table>
+		<table th:each="cmt : ${ditailView}">
 			<tr>
 				<th>글번호</th>
-				<th>팀 이름</th>
+				<th>팀 이름</th>	
 				<th>작성자</th>
 				<th>작성 날짜</th>
 				<th>제목</th>
@@ -38,11 +33,11 @@ th, td {
 				<td th:text="${cmt.teamNameKr}" />
 				<td th:text="${cmt.writer}" />
 				<td th:text="${cmt.wrtrDttm}" />
-				<td> <a th:href="@{detail(commentNum=${cmt.commentNum})}" th:text="${cmt.subject}" ></a></td>
+				<td th:text="${cmt.subject}" />
 				<td th:text="${cmt.content}" />
 			</tr>
 		</table>
-
+		</form>
 		<!-- POST 저장 -->
 		<form method="post" name="add" action="add">
 			<button type="submit">등록</button>
@@ -54,29 +49,5 @@ th, td {
 		</form>
 		<br>
 	</div>
-
-	<!-- GET 조회 -->
-	<form method="get" name="get">
-		<input type="text" name="subject" placeholder="검색할 제목을 입력하세요.">
-		<button type="submit">검색</button>
-	</form>
-	<br>
-
-
-	<!-- 삭제 -->
-	<form method="get" name="delete" action="delete">
-		<h3>삭제</h3>
-		삭제할 글번호를 입력하세요. <br> <input type="text" name="commentNum"
-			id="delete">
-		<button type="submit">삭제</button>
-	</form>
-	<br>
-	<hr>
-
-	<br>
-	<br>
-	<br>
-
-
 </body>
 </html>

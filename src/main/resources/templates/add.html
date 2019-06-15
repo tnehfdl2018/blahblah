@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="ko-KR">
+   <head>
+      <meta charset="utf-8">
+      <title>게시판</title>
+      
+      <style>
+        table {
+          width: 100%;
+          border-top: 1px solid #444444;
+          border-collapse: collapse;
+        }
+        th, td {
+          border-bottom: 1px solid #444444;
+          padding: 10px;
+          text-align: center;
+        }
+      </style>
+   </head>
+   <body>
+      <!-- 추가 -->
+      <form method="post" name="write" action="write">
+         <h3>추가</h3>
+         제목 : <input type="text" name="subject"><br>
+         팀 이름 : <input type="text" name="teamNameKr"><br>
+         작성자 : <input type="text" name="writer"><br>
+         내용 : <br> <textarea rows="20" cols="50" name="content">내용을 입력하세요.</textarea>
+         <button type="submit">등록</button>
+      </form> <br>
+  
+     
+   </body>
+</html>
