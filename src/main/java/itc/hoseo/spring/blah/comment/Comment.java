@@ -13,9 +13,10 @@ import lombok.NoArgsConstructor;
 @Data
 
 public class Comment {
+	private int commentNum;
 	private String teamNameKr;
 	private String subject;
 	private String writer;
 	private String content;
-	private Timestamp wrtrDttm;
+	private Timestamp date;
 }

@@ -64,30 +64,29 @@ public class MainController {
 	}
 	
 	// 뿌려주기
-	@RequestMapping(path = "comment", name = "get")
+	@RequestMapping(path = "comment", name = "get", method = RequestMethod.GET)
 	public String comment(ModelMap m, Comment cmt) {
-		System.out.println("여기아닌데?");
 		m.put("pairy", commentService.findComments(cmt));
 		System.out.println(m.put("pairy", commentService.findComments(cmt)));
 		return "comment";
 	}
 	
-	// 검색
-	@RequestMapping(path = "comment", method = RequestMethod.POST, name = "write")
+	// 추가
+	@RequestMapping(path = "add", method = RequestMethod.POST, name = "write")
 	public String saveComment(Comment cmt ,ModelMap m) {
 		Timestamp ts = new Timestamp(System.currentTimeMillis());
-		cmt.setWrtrDttm(ts);
+		cmt.setDate(ts);
 		commentService.addComment(cmt);		
 		return "redirect:comment";
 	}
 	
+
 	// 수정
 	@RequestMapping(path = "modify")
 	public String modifyComment(Comment cmt) {
-		System.out.println("수정할래요");
 		commentService.updateComment(cmt);
 		Timestamp ts = new Timestamp(System.currentTimeMillis());
-		cmt.setWrtrDttm(ts);
+		cmt.setDate(ts);
 		return "redirect:comment";
 	}
 	
@@ -97,5 +96,24 @@ public class MainController {
 		commentService.deleteComment(cmt);
 		return "redirect:comment";
 	}  
+	
+	
+	
+///////////////////////////////////////////////////////////////////////////
+	
+	// 수정페이지
+	@RequestMapping(path = "modifyView")
+	public String moveModify(Comment cmt) {  
+		return "modify";
+	}
+	// 추가 페이지
+	@RequestMapping(path = "addView")
+	public String moveAdd(Comment cmt) {
+		return "add";
+	}
+	
+	
+///////////////////////////////////////////////////////////////////////////
+	
 
 }

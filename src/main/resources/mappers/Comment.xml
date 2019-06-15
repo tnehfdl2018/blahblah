@@ -27,7 +27,7 @@
 
 	<insert id="addComment" parameterType="Comment">
 		insert into comment(team_name_kr, subject, writer, content, date) values
-		(#{teamNameKr}, #{subject}, #{writer}, #{content}, #{wrtrDttm})
+		(#{teamNameKr}, #{subject}, #{writer}, #{content}, #{date})
 	</insert>
 	
 	
@@ -37,12 +37,13 @@
 	<update id="updateComment" parameterType="Comment">
 		update comment
 		<set>
+			team_name_kr = #{teamNameKr},
 			subject = #{subject},
 			writer = #{writer},
 	 		content = #{content},
 		</set>
 		<where>
-			team_name_kr = #{teamNameKr}	
+			comment_num = #{commentNum}	
 		</where>
 	</update>
 	
@@ -52,7 +53,7 @@
 	<delete id="deleteComment" parameterType="Comment">
 		delete from comment
 		<where>
-			subject = #{subject}
+			comment_num = #{commentNum}
 		</where>		
 	</delete>
 </mapper>
